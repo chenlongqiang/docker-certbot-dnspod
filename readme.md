@@ -1,13 +1,16 @@
 # readme
 近期免费证书有效期从 1 年缩短到 3 个月，避免经常要上云平台手动申请，所以想找个工具可以简单的申请、续期证书。通过了解，发现 Certbot 工具，但官方没提供 Dnspod 插件，于是找了 Python3 的封装并打包成 Docker 方便使用。
 
-## certbot 相关资料
-官方文档：https://eff-certbot.readthedocs.io/en/latest/install.html  
-官方 Github 仓库：https://github.com/certbot/certbot  
-Certbot Python3 封装：https://pypi.org/project/certbot-dnspod/  
+## 安装与使用步骤
+0.有 Docker 环境
+该步骤略过，自行在搜索引擎安装解决
 
-## 使用步骤
-1.构建
+1.clone 仓库
+```
+git@github.com:chenlongqiang/docker-certbot-dnspod.git
+```
+
+2.构建镜像
 ```
 # 构建 Docker 镜像
 docker build -t certbot-dnspod .
@@ -15,7 +18,7 @@ docker build -t certbot-dnspod .
 # 填写 dnspod.ini 配置
 ```
 
-2.使用
+3.使用
 ```
 # 申请新证书，执行后会进行命令行交互，填写完信息后将在 certs 目录下生成申请成功的证书
 docker run -it --rm -v ./conf/dnspod.ini:/data/certbot/dnspod.ini -v ./certs:/etc/letsencrypt certbot-dnspod -d your_domain.com -d "*.your_domain.com"
@@ -23,6 +26,11 @@ docker run -it --rm -v ./conf/dnspod.ini:/data/certbot/dnspod.ini -v ./certs:/et
 # 续期 certs 目录下的证书
 docker run -it --rm -v ./conf/dnspod.ini:/data/certbot/dnspod.ini -v ./certs:/etc/letsencrypt certbot-dnspod renew
 ```
+
+## certbot 相关资料
+官方文档：https://eff-certbot.readthedocs.io/en/latest/install.html  
+官方 Github 仓库：https://github.com/certbot/certbot  
+Certbot Python3 封装：https://pypi.org/project/certbot-dnspod/  
 
 ## FAQ
 1.其中 ./conf/dnspod.ini 配置从哪获取？
