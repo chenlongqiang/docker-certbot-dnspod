@@ -1,6 +1,5 @@
 # readme
-近期免费证书有效期从 1 年缩短到 3 个月，避免经常要上云平台手动申请，所以想找个工具可以简单的申请、续期证书。
-通过了解，发现有 Certbot 工具，但官方没有提供 Dnspod 插件，于是找了一下 python 封装并打包成 Docker 方便使用。
+近期免费证书有效期从 1 年缩短到 3 个月，避免经常要上云平台手动申请，所以想找个工具可以简单的申请、续期证书。通过了解，发现 Certbot 工具，但官方没提供 Dnspod 插件，于是找了 python 的封装并打包成 Docker 方便使用。
 
 ## certbot 相关资料
 官方文档：https://eff-certbot.readthedocs.io/en/latest/install.html  
